@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import mapboxgl from '!mapbox-gl' // eslint-disable-line import/no-webpack-loader-syntax
+import { Marker } from 'react-map-gl'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoiYWpsdWMiLCJhIjoiY2xiZmVsMnM3MDVidzNvbGplc3lwemwyMCJ9.kAdppYy6iAWC5qF1sXyKLw'
@@ -67,11 +68,21 @@ const Map = () => {
   //   // make a marker for each feature and add to the map
   //   new mapboxgl.Marker(el).setLngLat(feature.geometry.coordinates).addTo(map)
   // }
-  const marker = new mapboxgl.Marker().setLngLat([-73.97, 40.75]).addTo(map)
+  // const marker = new mapboxgl.Marker().setLngLat([-73.97, 40.75]).addTo(map)
+
+  let marker = {
+    latitude: 40.75,
+    longitude: -73.97
+  }
 
   return (
     <div>
       <div ref={mapContainer} className="map-container" />
+      <Marker longitude={marker.longitude} latitude={marker.latitude}>
+        <div className="marker temporary-marker">
+          <span></span>
+        </div>
+      </Marker>
     </div>
   )
 }

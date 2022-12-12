@@ -1,0 +1,27 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "Stoop",
+        "description": "Good stuff"
+      },
+      "geometry": {
+        "coordinates": [-73.97, 40.75],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "TV",
+        "description": "Doesn't work"
+      },
+      "geometry": {
+        "coordinates": [-73.87, 40.77],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}
