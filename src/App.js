@@ -9,9 +9,14 @@ import { useState, useEffect } from 'react'
 const App = () => {
   const [user, setUser] = useState(null)
 
+  const handleLogout = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
   return (
     <div>
-      <Header />
+      <Header handleLogout={handleLogout} />
       <main>
         <Routes>
           <Route path="/" element={<Map />} />

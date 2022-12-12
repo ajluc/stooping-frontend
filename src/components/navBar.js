@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const Header = () => {
+const Header = ({ handleLogout }) => {
   return (
     <header className="header">
       <nav className="nav-grid">
@@ -12,6 +12,9 @@ const Header = () => {
         </div>
         <Link to="/signIn">Sign In</Link>
         <Link to="/register">Register</Link>
+        <Link onClick={handleLogout} to="/">
+          Log Out
+        </Link>
       </nav>
     </header>
   )
