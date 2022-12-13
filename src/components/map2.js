@@ -1,7 +1,8 @@
 import mapboxgl from 'mapbox-gl'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
 import geoJson from '../testing.json'
+import { GetStoops } from '../services/StoopServices'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA'
@@ -15,10 +16,18 @@ const Marker = ({ onClick, feature }) => {
 }
 
 const Map = () => {
+  const [stoops, setStoops] = useState([])
   const mapContainerRef = useRef(null)
+
+  const getStoops = async () => {
+    const stoopsData = await GetStoops()
+    setStoops(stoopsData)
+  }
 
   // Initialize map when component mounts
   useEffect(() => {
+    getStoops()
+
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
@@ -45,13 +54,25 @@ const Map = () => {
     // })
 
     // Adding a marker that can be clicked for each element in the geoJSON file
-    geoJson.features.forEach((feature) => {
-      console.log(feature.geometry.coordinates)
-      let marker = new mapboxgl.Marker()
-      marker.setLngLat(feature.geometry.coordinates).addTo(map)
-      marker.getElement().addEventListener('click', () => {
-        console.log('clicked')
-      })
+    // geoJson.features.forEach((feature) => {
+    //   console.log(feature.geometry.coordinates)
+    //   let marker = new mapboxgl.Marker()
+    //   marker.setLngLat(feature.geometry.coordinates).addTo(map)
+    //   marker.getElement().addEventListener('click', () => {
+    //     console.log('clicked')
+    //   })
+    // })
+
+    // Adding a marker for each stoop in the database
+    stoops?.forEach((stoop) => {
+      if (stoop.latitude && stoop.longitude) {
+        let marker = new mapboxgl.Marker()
+        let coords = [stoop.longitude, stoop.latitude]
+        marker.setLngLat(coords).addTo(map)
+        marker.getElement().addEventListener('click', () => {
+          console.log('clicked')
+        })
+      }
     })
 
     // Add marker on click and console log lat/long
@@ -70,9 +91,9 @@ const Map = () => {
     return () => map.remove()
   }, [])
 
-  const markerClicked = (title) => {
-    window.alert(title)
-  }
+  // const markerClicked = (title) => {
+  //   window.alert(title)
+  // }
 
   return <div className="map-container" ref={mapContainerRef} />
 }
