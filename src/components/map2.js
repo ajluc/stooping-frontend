@@ -37,11 +37,11 @@ const Map = ({ user }) => {
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-73.97, 40.75],
-      zoom: 10
+      zoom: 11
     })
 
     // Add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+    map.addControl(new mapboxgl.NavigationControl(), 'bottom-right')
 
     // Adding a marker for each stoop in the database
     stoops?.forEach((stoop) => {
@@ -120,7 +120,7 @@ const Map = ({ user }) => {
   )
 
   return (
-    <div>
+    <div className="map">
       <div className="map-container" ref={mapContainerRef} />
       {tempcoords ? (
         <div>

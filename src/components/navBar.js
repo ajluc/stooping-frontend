@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 const Header = ({ handleLogout }) => {
   return (
     <header className="header">
-      <nav className="nav-grid">
+      <nav className="nav-container">
         <p>StoopCity</p>
-        <div className="link">
+        <div className="link nav-container">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/add">Add Stoop</Link>

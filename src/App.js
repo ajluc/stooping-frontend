@@ -30,17 +30,17 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="app-container">
       <Header handleLogout={handleLogout} />
-      <main>
-        <Routes>
-          <Route path="/" element={<Map user={user} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/signin" element={<SignIn setUser={setUser} />} />
-          <Route path="/list" element={<ListView user={user} />} />
-        </Routes>
-        <div></div>
-      </main>
+      {/* <main> */}
+      <Routes>
+        <Route path="/" element={<Map user={user} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<SignIn setUser={setUser} />} />
+        <Route path="/list" element={<ListView user={user} />} />
+      </Routes>
+      <div></div>
+      {/* </main> */}
     </div>
   )
 }
