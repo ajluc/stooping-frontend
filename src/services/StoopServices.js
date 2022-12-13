@@ -8,3 +8,12 @@ export const GetStoops = async () => {
     throw error
   }
 }
+
+export const CreateStoop = async (formData) => {
+  try {
+    const res = await Client.post('/stoops', formData)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

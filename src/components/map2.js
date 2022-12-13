@@ -1,22 +1,26 @@
 import mapboxgl from 'mapbox-gl'
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import geoJson from '../testing.json'
-import { GetStoops } from '../services/StoopServices'
+import { CreateStoop, GetStoops } from '../services/StoopServices'
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA'
 
-const Marker = ({ onClick, feature }) => {
-  const _onClick = () => {
-    onClick(feature.properties.description)
-  }
-
-  return <button onClick={_onClick} className="marker"></button>
-}
-
-const Map = () => {
+const Map = ({ user }) => {
+  let navigate = useNavigate()
   const [stoops, setStoops] = useState([])
+  const [tempcoords, setTemp] = useState(null)
+  const startState = {
+    title: '',
+    description: '',
+    image: '',
+    user_id: 9, // => NEED TO CHANGE!!!!
+    neighborhood_id: 1
+  }
+  const [formState, setFormState] = useState(startState)
+  // const [mapLoaded, setMapLoaded] = useState(false)
   const mapContainerRef = useRef(null)
 
   const getStoops = async () => {
@@ -25,6 +29,7 @@ const Map = () => {
   }
 
   // Initialize map when component mounts
+
   useEffect(() => {
     getStoops()
 
@@ -35,33 +40,8 @@ const Map = () => {
       zoom: 10
     })
 
-    // // Render custom marker components
-    // geoJson.features.forEach((feature) => {
-    //   // Create a React ref
-    //   const ref = React.createRef()
-    //   // Create a new DOM node and save it to the React ref
-    //   ref.current = document.createElement('div')
-    //   // Render a Marker Component on our new DOM node
-    //   ReactDOM.render(
-    //     <Marker onClick={markerClicked} feature={feature} />,
-    //     ref.current
-    //   )
-
-    //   // Create a Mapbox Marker at our new DOM node
-    //   new mapboxgl.Marker(ref.current)
-    //     .setLngLat(feature.geometry.coordinates)
-    //     .addTo(map)
-    // })
-
-    // Adding a marker that can be clicked for each element in the geoJSON file
-    // geoJson.features.forEach((feature) => {
-    //   console.log(feature.geometry.coordinates)
-    //   let marker = new mapboxgl.Marker()
-    //   marker.setLngLat(feature.geometry.coordinates).addTo(map)
-    //   marker.getElement().addEventListener('click', () => {
-    //     console.log('clicked')
-    //   })
-    // })
+    // Add navigation control (the +/- zoom buttons)
+    map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     // Adding a marker for each stoop in the database
     stoops?.forEach((stoop) => {
@@ -79,23 +59,81 @@ const Map = () => {
     let marker = new mapboxgl.Marker()
     const addMarker = (event) => {
       let coordinates = event.lngLat
-      console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat)
       marker.setLngLat(coordinates).addTo(map)
+      setTemp(coordinates)
+      setFormState({
+        ...formState,
+        longitude: coordinates.lng,
+        latitude: coordinates.lat
+      })
     }
     map.on('click', addMarker)
-
-    // Add navigation control (the +/- zoom buttons)
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 
     // Clean up on unmount
     return () => map.remove()
   }, [])
 
-  // const markerClicked = (title) => {
-  //   window.alert(title)
-  // }
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    console.log('new post')
+    console.log(formState)
+    console.log(tempcoords)
+    // console.log(user.payload.id)
+    setFormState(startState)
+    // navigate(`/`)
+    const newStoop = await CreateStoop(formState)
+  }
 
-  return <div className="map-container" ref={mapContainerRef} />
+  const handleChange = (event) => {
+    setFormState({ ...formState, [event.target.id]: event.target.value })
+  }
+
+  const form = (
+    <div className="the-form">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Title"
+          id="title"
+          onChange={handleChange}
+          value={formState.title}
+        />
+        <input
+          type="text"
+          placeholder="Image URL"
+          id="image"
+          onChange={handleChange}
+          value={formState.image}
+        />
+        <textarea
+          rows="4"
+          cols="50"
+          onChange={handleChange}
+          id="description"
+          value={formState.description}
+        />
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  )
+
+  return (
+    <div>
+      <div className="map-container" ref={mapContainerRef} />
+      {tempcoords ? (
+        <div>
+          <p>New Stoop Details:</p>
+          {form}
+        </div>
+      ) : (
+        <div>
+          <p>Please pick a location on the map</p>
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default Map
