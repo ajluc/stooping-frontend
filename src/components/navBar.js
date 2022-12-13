@@ -4,7 +4,6 @@ const Header = ({ handleLogout }) => {
   return (
     <header className="header">
       <nav className="nav-container">
-        <p>StoopCity</p>
         <div className="link nav-container">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>

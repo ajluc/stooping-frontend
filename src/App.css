@@ -19,6 +19,16 @@ body {
   flex-direction: column;
 }
 
+.popup-container {
+  margin: 20px;
+  background-color: white;
+  height: 100px;
+  width: 200px;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  z-index: 1;
+}
+
 header {
   background-color: white;
   /* padding: 10px; */
