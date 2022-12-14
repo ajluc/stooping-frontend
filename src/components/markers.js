@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import mapboxgl from 'mapbox-gl'
 import { useNavigate } from 'react-router-dom'
 
-const Markers = ({ map, stoops }) => {
+const Markers = ({ map, stoops, setIsOpen }) => {
   let navigate = useNavigate()
   const [currentMarkers, setCurrentMarkers] = useState([])
   useEffect(() => {
@@ -23,6 +23,11 @@ const Markers = ({ map, stoops }) => {
         marker.setLngLat(coords).addTo(map)
         marker.getElement().addEventListener('click', () => {
           navigate(`/stoops/${stoop.id}`)
+          setIsOpen(true)
+          // const popup = new mapboxgl.Popup({ offset: [0, -15] })
+          //   .setLngLat(coords)
+          //   .setHTML(`<h3>${coords}</h3>`)
+          //   .addTo(map)
         })
         temp.push(marker)
       }

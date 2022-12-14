@@ -35,7 +35,6 @@ const App = () => {
     <div className="app-container">
       <Header isOpen={isOpen} setIsOpen={setIsOpen} />
       <SignInBar user={user} handleLogout={handleLogout} />
-      <i className="icon bi-chevron-right"></i>
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />

@@ -7,24 +7,28 @@ import AddStoop from '../components/newStoopForm'
 import StoopDetails from '../components/stoopDetails'
 import { Collapse, Button, Alert, Card, CardBody } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useNavigate } from 'react-router-dom'
 
 const Home = ({ user, type, isOpen, setIsOpen }) => {
+  let navigate = useNavigate()
   const [stoops, setStoops] = useState(null)
   const [map, setMap] = useState(null)
   const startState = {
     title: '',
     description: '',
     image: '',
-    // user_id: null,
     neighborhood_id: 1,
     longitude: null,
     latitude: null
   }
   const [formState, setFormState] = useState(startState)
 
-  // const [isOpen, setIsOpen] = useState(false)
-
-  // const toggle = () => setIsOpen(!isOpen)
+  const toggle = () => {
+    setIsOpen(false)
+    if (type === 3) {
+      navigate('/')
+    }
+  }
 
   useEffect(() => {
     getStoops()
@@ -41,16 +45,14 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
         return <p>About!</p>
       case type === 2:
         return (
-          <div>
-            <Collapse className="toggle-details" horizontal isOpen={isOpen}>
-              <AddStoop
-                formState={formState}
-                setFormState={setFormState}
-                stoops={stoops}
-                setStoops={setStoops}
-                startState={startState}
-              />
-            </Collapse>
+          <div className="toggle-details">
+            <AddStoop
+              formState={formState}
+              setFormState={setFormState}
+              stoops={stoops}
+              setStoops={setStoops}
+              startState={startState}
+            />
             <AddMarker
               user={user}
               map={map}
@@ -63,12 +65,8 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
         return <StoopDetails stoops={stoops} />
       default:
         return (
-          <div>
-            <Collapse horizontal isOpen={isOpen}>
-              <div className="toggle-details">
-                <p>Howdy</p>
-              </div>
-            </Collapse>
+          <div className="toggle-details">
+            <p>Howdy</p>
           </div>
         )
     }
@@ -77,8 +75,12 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
   return (
     <div className="map grid">
       <Map setMap={setMap} />
-      <Markers map={map} stoops={stoops} />
-      <div className="popup-container">{popupType(type)}</div>
+      <Markers map={map} stoops={stoops} setIsOpen={setIsOpen} />
+      <Collapse className="popup-container" horizontal isOpen={isOpen}>
+        {popupType(type)}
+        <i onClick={toggle} className="icon bi-chevron-left"></i>
+      </Collapse>
+      {/* <div className="popup-container">{popupType(type)}</div> */}
     </div>
   )
 }

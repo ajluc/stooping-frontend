@@ -41,7 +41,7 @@ h1 {
 .sign-in-container {
   grid-column-end: 3;
   grid-row-start: 1;
-  z-index: 1;
+  z-index: 2;
   justify-self: end;
   align-self: start;
   margin: 10px;
@@ -80,11 +80,6 @@ a:link, a:visited, a:hover { text-decoration: none; }
   font-size: 2em;
 }
 
-.popup-container {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  z-index: 1;
-}
 
 header {
   background-color: #7edcf6;
@@ -109,17 +104,13 @@ header {
   grid-row: 1 / 2;
 }
 
-.marker {
-  background-image: url('../public/marker.png');
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.toggle-details {
+.popup-container {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  z-index: 1;
+  width: fit-content;
+  height: fit-content;
+  max-width: 500px;
+  max-height: 500px;
   background-color: white;
-  width: 500px;
-  height: 200px
 }

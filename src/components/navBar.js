@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
-const Header = ({ isOpen, setIsOpen }) => {
-  const toggle = () => setIsOpen(!isOpen)
+const Header = ({ setIsOpen }) => {
+  const toggle = () => setIsOpen(true)
 
   return (
     <header className="header">
