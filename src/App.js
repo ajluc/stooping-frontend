@@ -11,6 +11,7 @@ import SignInBar from './components/signInBar'
 
 const App = () => {
   const [user, setUser] = useState(null)
+  const [isOpen, setIsOpen] = useState(true)
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -32,21 +33,39 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Header user={user} />
+      <Header isOpen={isOpen} setIsOpen={setIsOpen} />
       <SignInBar user={user} handleLogout={handleLogout} />
-      {/* <main> */}
-      {/* <Popup /> */}
+      <i className="icon bi-chevron-right"></i>
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/list" element={<ListView user={user} />} />
-        <Route path="/" element={<Home user={user} type={0} />} />
-        <Route path="/about" element={<Home user={user} type={1} />} />
-        <Route path="/add" element={<Home user={user} type={2} />} />
-        <Route path="/stoops/:id" element={<Home user={user} type={3} />} />
+        <Route
+          path="/"
+          element={
+            <Home user={user} type={0} isOpen={isOpen} setIsOpen={setIsOpen} />
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <Home user={user} type={1} isOpen={isOpen} setIsOpen={setIsOpen} />
+          }
+        />
+        <Route
+          path="/add"
+          element={
+            <Home user={user} type={2} isOpen={isOpen} setIsOpen={setIsOpen} />
+          }
+        />
+        <Route
+          path="/stoops/:id"
+          element={
+            <Home user={user} type={3} isOpen={isOpen} setIsOpen={setIsOpen} />
+          }
+        />
       </Routes>
       <div></div>
-      {/* </main> */}
     </div>
   )
 }

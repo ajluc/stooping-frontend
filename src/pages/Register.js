@@ -30,52 +30,48 @@ const Register = () => {
   }
 
   return (
-    <div className="flex-column">
-      <div className="events-container card">
-        <div className="buffer">
-          <form className="col" onSubmit={handleSubmit}>
-            <div className="hello">
-              <label htmlFor="name">Name </label>
-              <input
-                className="input-reg"
-                onChange={handleChange}
-                name="name"
-                type="text"
-                placeholder="name"
-                value={formState.name}
-                required
-              />
-            </div>
-            <div className="hello">
-              <label htmlFor="email">Email </label>
-              <input
-                className="input-reg"
-                onChange={handleChange}
-                name="email"
-                type="text"
-                placeholder="email"
-                value={formState.email}
-                required
-              />
-            </div>
-            <div className="hello">
-              <label htmlFor="password">Password </label>
-              <input
-                className="input-reg"
-                onChange={handleChange}
-                name="password"
-                type="password"
-                placeholder="password"
-                value={formState.password}
-                required
-              />
-            </div>
-            <div className="the-btn">
-              <button id="register-button">Register</button>
-            </div>
-          </form>
+    <div className="auth-container">
+      <form className="col" onSubmit={handleSubmit}>
+        <div className="hello">
+          <label htmlFor="name">Name </label>
+          <input
+            className="input-reg"
+            onChange={handleChange}
+            name="name"
+            type="text"
+            placeholder="name"
+            value={formState.name}
+            required
+          />
         </div>
-      </div>
+        <div className="hello">
+          <label htmlFor="email">Email </label>
+          <input
+            className="input-reg"
+            onChange={handleChange}
+            name="email"
+            type="text"
+            placeholder="email"
+            value={formState.email}
+            required
+          />
+        </div>
+        <div className="hello">
+          <label htmlFor="password">Password </label>
+          <input
+            className="input-reg"
+            onChange={handleChange}
+            name="password"
+            type="password"
+            placeholder="password"
+            value={formState.password}
+            required
+          />
+        </div>
+        <div className="the-btn">
+          <button id="register-button">Register</button>
+        </div>
+      </form>
     </div>
   )
 }

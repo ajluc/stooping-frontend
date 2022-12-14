@@ -5,8 +5,10 @@ import Markers from '../components/markers'
 import { GetStoops } from '../services/StoopServices'
 import AddStoop from '../components/newStoopForm'
 import StoopDetails from '../components/stoopDetails'
+import { Collapse, Button, Alert, Card, CardBody } from 'reactstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const Home = ({ user, type }) => {
+const Home = ({ user, type, isOpen, setIsOpen }) => {
   const [stoops, setStoops] = useState(null)
   const [map, setMap] = useState(null)
   const startState = {
@@ -19,6 +21,10 @@ const Home = ({ user, type }) => {
     latitude: null
   }
   const [formState, setFormState] = useState(startState)
+
+  // const [isOpen, setIsOpen] = useState(false)
+
+  // const toggle = () => setIsOpen(!isOpen)
 
   useEffect(() => {
     getStoops()
@@ -36,25 +42,35 @@ const Home = ({ user, type }) => {
       case type === 2:
         return (
           <div>
+            <Collapse className="toggle-details" horizontal isOpen={isOpen}>
+              <AddStoop
+                formState={formState}
+                setFormState={setFormState}
+                stoops={stoops}
+                setStoops={setStoops}
+                startState={startState}
+              />
+            </Collapse>
             <AddMarker
               user={user}
               map={map}
               formState={formState}
               setFormState={setFormState}
             />
-            <AddStoop
-              formState={formState}
-              setFormState={setFormState}
-              stoops={stoops}
-              setStoops={setStoops}
-              startState={startState}
-            />
           </div>
         )
       case type === 3:
         return <StoopDetails stoops={stoops} />
       default:
-        return <p>Welcome!</p>
+        return (
+          <div>
+            <Collapse horizontal isOpen={isOpen}>
+              <div className="toggle-details">
+                <p>Howdy</p>
+              </div>
+            </Collapse>
+          </div>
+        )
     }
   }
 
@@ -62,10 +78,7 @@ const Home = ({ user, type }) => {
     <div className="map grid">
       <Map setMap={setMap} />
       <Markers map={map} stoops={stoops} />
-      <div className="popup-container">
-        <h1>StoopCity</h1>
-        {popupType(type)}
-      </div>
+      <div className="popup-container">{popupType(type)}</div>
     </div>
   )
 }

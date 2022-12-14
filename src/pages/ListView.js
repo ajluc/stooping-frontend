@@ -15,7 +15,7 @@ const ListView = ({ user }) => {
   }, [])
 
   return user ? (
-    <div>
+    <div className="list-container">
       <p>Let's see them eh?</p>
       {stoops.map((stoop) => (
         <div key={stoop.id}>
@@ -24,7 +24,7 @@ const ListView = ({ user }) => {
       ))}
     </div>
   ) : (
-    <div>
+    <div className="list-container">
       <p>Please sign in for details</p>
     </div>
   )

@@ -7,8 +7,8 @@ const AddMarker = ({ user, map, setFormState, formState }) => {
       // color: '#0000ff',
       draggable: true
     }
-    // Add marker on click and console log lat/long
-    if (map) {
+    // Add marker on click
+    if (map && user) {
       let marker = new mapboxgl.Marker(options)
       const addMarker = (event) => {
         let coordinates = event.lngLat
@@ -17,12 +17,12 @@ const AddMarker = ({ user, map, setFormState, formState }) => {
           ...formState,
           longitude: coordinates.lng,
           latitude: coordinates.lat,
-          user_id: user.id
+          user_id: user.payload.id
         })
       }
       map.on('click', addMarker)
     }
-  }, [map])
+  }, [map, user])
 }
 
 export default AddMarker

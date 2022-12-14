@@ -47,6 +47,13 @@ h1 {
   margin: 10px;
 }
 
+.auth-container, .list-container {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  justify-self: center;
+  align-self: center;
+}
+
 .sign-in-btn {
   /* background-color: #0d6efd; */
   margin: 5px;
@@ -74,11 +81,6 @@ a:link, a:visited, a:hover { text-decoration: none; }
 }
 
 .popup-container {
-  margin: 20px;
-  padding: 20px;
-  background-color: white;
-  height: 30%;
-  width: 40%;
   grid-column-start: 1;
   grid-row-start: 1;
   z-index: 1;
@@ -114,4 +116,10 @@ header {
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.toggle-details {
+  background-color: white;
+  width: 500px;
+  height: 200px
 }
