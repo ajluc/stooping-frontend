@@ -5,21 +5,20 @@ const Header = ({ handleLogout, user }) => {
     <header className="header">
       <nav className="nav-container">
         <div className="link nav-container">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/add">Add Stoop</Link>
-          <Link to="/list">List View</Link>
-        </div>
-        {user ? (
-          <Link onClick={handleLogout} to="/">
-            Log Out
+          <Link to="/">
+            <i className="icon bi-house-door-fill"></i>
           </Link>
-        ) : (
-          <div>
-            <Link to="/signIn">Sign In</Link>
-            <Link to="/register">Register</Link>
-          </div>
-        )}
+          <Link to="/about">
+            <i className="icon bi-info"></i>
+          </Link>
+          <Link to="/list">
+            <i className="icon bi-list-ul"></i>
+          </Link>
+          <Link to="/add">
+            <i className="icon bi-plus"></i>
+          </Link>
+          {/* <i className="icon bi-book"></i> */}
+        </div>
       </nav>
     </header>
   )

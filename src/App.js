@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn'
 import Header from './components/navBar'
 import ListView from './pages/ListView'
 import Home from './pages/Home'
+import SignInBar from './components/signInBar'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -31,15 +32,17 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Header user={user} handleLogout={handleLogout} />
+      <Header user={user} />
+      <SignInBar user={user} handleLogout={handleLogout} />
       {/* <main> */}
       {/* <Popup /> */}
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/list" element={<ListView user={user} />} />
-        <Route path="/" element={<Home user={user} type={true} />} />
-        <Route path="/about" element={<Home user={user} type={false} />} />
+        <Route path="/" element={<Home user={user} type={0} />} />
+        <Route path="/about" element={<Home user={user} type={1} />} />
+        <Route path="/add" element={<Home user={user} type={2} />} />
       </Routes>
       <div></div>
       {/* </main> */}

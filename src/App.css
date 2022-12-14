@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,9 +15,14 @@ body {
   grid-template-rows: 1fr;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .app-container {
   display: grid;
-  grid-template-columns: 1fr 9fr;
+  grid-template-columns: 60px auto;
   grid-template-rows: 1fr;
   height: 100vh;
 }
@@ -25,8 +32,40 @@ body {
   flex-direction: column;
 }
 
+.sign-in-container {
+  grid-column-end: 3;
+  grid-row-start: 1;
+  z-index: 1;
+  justify-self: end;
+  align-self: start;
+  margin: 10px;
+}
+
+.sign-in-btn {
+  background-color: blue;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 25px;
+  height: 45px;
+}
+
+.register-btn {
+  margin: 5px;
+  border-radius: 25px;
+  height: 52px;
+}
+
+
+.icon {
+  font-size: 2em;
+}
+.sm-icon {
+  font-size: 2em;
+}
+
 .popup-container {
   margin: 20px;
+  padding: 20px;
   background-color: white;
   height: 30%;
   width: 40%;
@@ -44,6 +83,7 @@ header {
   z-index: 1;
   grid-column-start: 1;
   grid-row: 1 / 2;
+  padding: 10px
 }
 
 .map {

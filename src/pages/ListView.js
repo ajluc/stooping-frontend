@@ -17,15 +17,15 @@ const ListView = ({ user }) => {
   return user ? (
     <div>
       <p>Let's see them eh?</p>
-    </div>
-  ) : (
-    <div>
-      <p>Please sign in but in the meantime let's see them eh?</p>
       {stoops.map((stoop) => (
         <div key={stoop.id}>
           <StoopCard id={stoop.id} stoop={stoop} />
         </div>
       ))}
+    </div>
+  ) : (
+    <div>
+      <p>Please sign in for details</p>
     </div>
   )
 }

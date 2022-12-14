@@ -26,30 +26,40 @@ const Home = ({ user, type }) => {
     setStoops(stoopsData)
   }
 
+  const popupType = (type) => {
+    switch (true) {
+      case type === 1:
+        return <p>About!</p>
+      case type === 2:
+        return (
+          <div>
+            <AddMarker
+              user={user}
+              map={map}
+              formState={formState}
+              setFormState={setFormState}
+            />
+            <AddStoop
+              formState={formState}
+              setFormState={setFormState}
+              stoops={stoops}
+              setStoops={setStoops}
+            />
+          </div>
+        )
+      default:
+        return <p>Welcome!</p>
+    }
+  }
+
   return (
     <div className="map grid">
       <Map setMap={setMap} />
       <Markers map={map} stoops={stoops} />
-      {type ? (
-        <div className="popup-container">
-          <AddMarker
-            user={user}
-            map={map}
-            formState={formState}
-            setFormState={setFormState}
-          />
-          <AddStoop
-            formState={formState}
-            setFormState={setFormState}
-            stoops={stoops}
-            setStoops={setStoops}
-          />
-        </div>
-      ) : (
-        <div className="popup-container">
-          <p>about</p>
-        </div>
-      )}
+      <div className="popup-container">
+        <h3>StoopCity</h3>
+        {popupType(type)}
+      </div>
     </div>
   )
 }
