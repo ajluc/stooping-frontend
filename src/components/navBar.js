@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const Header = ({ handleLogout }) => {
+const Header = ({ handleLogout, user }) => {
   return (
     <header className="header">
       <nav className="nav-container">
@@ -10,11 +10,16 @@ const Header = ({ handleLogout }) => {
           <Link to="/add">Add Stoop</Link>
           <Link to="/list">List View</Link>
         </div>
-        <Link to="/signIn">Sign In</Link>
-        <Link to="/register">Register</Link>
-        <Link onClick={handleLogout} to="/">
-          Log Out
-        </Link>
+        {user ? (
+          <Link onClick={handleLogout} to="/">
+            Log Out
+          </Link>
+        ) : (
+          <div>
+            <Link to="/signIn">Sign In</Link>
+            <Link to="/register">Register</Link>
+          </div>
+        )}
       </nav>
     </header>
   )

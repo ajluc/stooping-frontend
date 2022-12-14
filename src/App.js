@@ -6,7 +6,6 @@ import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Header from './components/navBar'
 import ListView from './pages/ListView'
-import Popup from './components/popup'
 import Home from './pages/Home'
 
 const App = () => {
@@ -32,14 +31,15 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <Header handleLogout={handleLogout} />
+      <Header user={user} handleLogout={handleLogout} />
       {/* <main> */}
       {/* <Popup /> */}
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
         <Route path="/list" element={<ListView user={user} />} />
-        <Route path="/" element={<Home user={user} />} />
+        <Route path="/" element={<Home user={user} type={true} />} />
+        <Route path="/about" element={<Home user={user} type={false} />} />
       </Routes>
       <div></div>
       {/* </main> */}

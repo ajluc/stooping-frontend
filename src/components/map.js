@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react'
 mapboxgl.accessToken =
   'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA'
 
-const MapNew = ({ setMap }) => {
+const Map = ({ setMap }) => {
   const mapContainerRef = useRef(null)
 
   // Initialize map when component mounts
@@ -27,4 +27,4 @@ const MapNew = ({ setMap }) => {
   return <div className="map-container" ref={mapContainerRef} />
 }
 
-export default MapNew
+export default Map
