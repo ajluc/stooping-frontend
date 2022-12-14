@@ -31,11 +31,9 @@ const Register = () => {
 
   return (
     <div className="auth-container">
-      <form className="col" onSubmit={handleSubmit}>
-        <div className="hello">
-          <label htmlFor="name">Name </label>
+      <form onSubmit={handleSubmit}>
+        <div className="form-div">
           <input
-            className="input-reg"
             onChange={handleChange}
             name="name"
             type="text"
@@ -44,10 +42,8 @@ const Register = () => {
             required
           />
         </div>
-        <div className="hello">
-          <label htmlFor="email">Email </label>
+        <div className="form-div">
           <input
-            className="input-reg"
             onChange={handleChange}
             name="email"
             type="text"
@@ -56,10 +52,8 @@ const Register = () => {
             required
           />
         </div>
-        <div className="hello">
-          <label htmlFor="password">Password </label>
+        <div className="form-div">
           <input
-            className="input-reg"
             onChange={handleChange}
             name="password"
             type="password"
@@ -68,8 +62,8 @@ const Register = () => {
             required
           />
         </div>
-        <div className="the-btn">
-          <button id="register-button">Register</button>
+        <div className="form-div">
+          <button>Register</button>
         </div>
       </form>
     </div>

@@ -32,9 +32,8 @@ const SignIn = ({ setUser }) => {
 
   return (
     <div className="auth-container">
-      <form className="sign-in-box" onSubmit={handleSubmit}>
-        <div className="things">
-          <label htmlFor="email">Email</label>
+      <form onSubmit={handleSubmit}>
+        <div className="form-div">
           <input
             className="login-input"
             onChange={handleChange}
@@ -45,8 +44,7 @@ const SignIn = ({ setUser }) => {
             required
           />
         </div>
-        <div className="things">
-          <label htmlFor="password">Password</label>
+        <div className="form-div">
           <input
             className="login-input"
             onChange={handleChange}
@@ -57,15 +55,15 @@ const SignIn = ({ setUser }) => {
             required
           />
         </div>
-        <div id="login-button">
-          <button id="login-btn">Sign in!</button>
+        <div className="form-div">
+          <button>log in</button>
         </div>
       </form>
-      <div className="new-user">
-        <p id="newbie">New user?</p>
-        <button id="reg-btn" onClick={() => navigate('/register')}>
-          Register
-        </button>
+      <div className="form-div">
+        <p>
+          New user?{' '}
+          <span onClick={() => navigate('/register')}>Register here.</span>
+        </p>
       </div>
     </div>
   )

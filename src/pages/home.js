@@ -80,7 +80,6 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
         {popupType(type)}
         <i onClick={toggle} className="icon bi-chevron-left"></i>
       </Collapse>
-      {/* <div className="popup-container">{popupType(type)}</div> */}
     </div>
   )
 }

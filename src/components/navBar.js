@@ -13,11 +13,11 @@ const Header = ({ setIsOpen }) => {
           <Link to="/about">
             <i onClick={toggle} className="icon bi-info"></i>
           </Link>
-          <Link to="/list">
-            <i className="icon bi-list-ul"></i>
-          </Link>
           <Link to="/add">
             <i onClick={toggle} className="icon bi-plus"></i>
+          </Link>
+          <Link to="/list">
+            <i className="icon bi-list-ul"></i>
           </Link>
         </div>
       </nav>
