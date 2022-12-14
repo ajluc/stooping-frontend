@@ -1,6 +1,12 @@
 import { CreateStoop } from '../services/StoopServices'
 
-const AddStoop = ({ stoops, setStoops, formState, setFormState }) => {
+const AddStoop = ({
+  stoops,
+  setStoops,
+  formState,
+  setFormState,
+  startState
+}) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     console.log('new post')
@@ -9,6 +15,7 @@ const AddStoop = ({ stoops, setStoops, formState, setFormState }) => {
     // navigate(`/`)
     const newStoop = await CreateStoop(formState)
     setStoops([...stoops, formState])
+    setFormState(startState)
   }
 
   const handleChange = (event) => {

@@ -4,6 +4,7 @@ import Map from '../components/map'
 import Markers from '../components/markers'
 import { GetStoops } from '../services/StoopServices'
 import AddStoop from '../components/newStoopForm'
+import StoopDetails from '../components/stoopDetails'
 
 const Home = ({ user, type }) => {
   const [stoops, setStoops] = useState(null)
@@ -12,8 +13,10 @@ const Home = ({ user, type }) => {
     title: '',
     description: '',
     image: '',
-    user_id: null,
-    neighborhood_id: 1
+    // user_id: null,
+    neighborhood_id: 1,
+    longitude: null,
+    latitude: null
   }
   const [formState, setFormState] = useState(startState)
 
@@ -44,9 +47,12 @@ const Home = ({ user, type }) => {
               setFormState={setFormState}
               stoops={stoops}
               setStoops={setStoops}
+              startState={startState}
             />
           </div>
         )
+      case type === 3:
+        return <StoopDetails stoops={stoops} />
       default:
         return <p>Welcome!</p>
     }
@@ -57,7 +63,7 @@ const Home = ({ user, type }) => {
       <Map setMap={setMap} />
       <Markers map={map} stoops={stoops} />
       <div className="popup-container">
-        <h3>StoopCity</h3>
+        <h1>StoopCity</h1>
         {popupType(type)}
       </div>
     </div>

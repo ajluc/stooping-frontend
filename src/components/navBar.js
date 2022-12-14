@@ -9,6 +9,7 @@ const Header = ({ handleLogout, user }) => {
             <i className="icon bi-house-door-fill"></i>
           </Link>
           <Link to="/about">
+            {/* <h2>i</h2> */}
             <i className="icon bi-info"></i>
           </Link>
           <Link to="/list">

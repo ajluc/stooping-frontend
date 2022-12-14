@@ -17,7 +17,7 @@ const SignInBar = ({ user, handleLogout }) => {
             </Link>
           </div>
           <div className="sign-in-btn">
-            <Link to="/signIn">Sign In</Link>
+            <Link to="/signIn">log in</Link>
           </div>
         </div>
       )}

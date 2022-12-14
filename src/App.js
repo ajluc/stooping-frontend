@@ -43,6 +43,7 @@ const App = () => {
         <Route path="/" element={<Home user={user} type={0} />} />
         <Route path="/about" element={<Home user={user} type={1} />} />
         <Route path="/add" element={<Home user={user} type={2} />} />
+        <Route path="/stoops/:id" element={<Home user={user} type={3} />} />
       </Routes>
       <div></div>
       {/* </main> */}

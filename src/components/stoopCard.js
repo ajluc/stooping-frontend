@@ -1,14 +1,16 @@
-const StoopCard = (obj) => {
-  return (
-    <div>
-      <p>Stoop:</p>
-      <p>{obj.stoop.title}</p>
-      <p>{obj.stoop.description}</p>
-      <p>{obj.stoop.latitude}</p>
-      <p>{obj.stoop.longitude}</p>
-      <p>{obj.stoop.neighborhood.name}</p>
-    </div>
-  )
+const StoopCard = ({ stoop }) => {
+  if (stoop) {
+    return (
+      <div>
+        <p>Stoop:</p>
+        <p>{stoop.title}</p>
+        <p>{stoop.description}</p>
+        <p>{stoop.latitude}</p>
+        <p>{stoop.longitude}</p>
+        <p>{stoop.neighborhood.name}</p>
+      </div>
+    )
+  }
 }
 
 export default StoopCard
