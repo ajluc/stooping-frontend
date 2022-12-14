@@ -62,6 +62,7 @@ const Register = () => {
             required
           />
         </div>
+        <div className="buffer"></div>
         <div className="form-div">
           <button>Register</button>
         </div>

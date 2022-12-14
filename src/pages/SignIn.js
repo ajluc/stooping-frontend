@@ -35,7 +35,6 @@ const SignIn = ({ setUser }) => {
       <form onSubmit={handleSubmit}>
         <div className="form-div">
           <input
-            className="login-input"
             onChange={handleChange}
             name="email"
             type="text"
@@ -46,7 +45,6 @@ const SignIn = ({ setUser }) => {
         </div>
         <div className="form-div">
           <input
-            className="login-input"
             onChange={handleChange}
             name="password"
             type="password"
@@ -55,14 +53,17 @@ const SignIn = ({ setUser }) => {
             required
           />
         </div>
+        <div className="buffer"></div>
         <div className="form-div">
           <button>log in</button>
         </div>
       </form>
       <div className="form-div">
-        <p>
+        <p className="center-text">
           New user?{' '}
-          <span onClick={() => navigate('/register')}>Register here.</span>
+          <span className="blue" onClick={() => navigate('/register')}>
+            Register here.
+          </span>
         </p>
       </div>
     </div>
