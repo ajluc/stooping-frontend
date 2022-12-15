@@ -42,7 +42,24 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
   const popupType = (type) => {
     switch (true) {
       case type === 1:
-        return <p>About!</p>
+        return (
+          <div className="toggle-details">
+            <p>Curious about stooping?</p>
+            <p>
+              The concept is not new to this city. Books, furniture, clothes -
+              all can be found for free. Set out at the curb or leaned on a
+              front gate, with a hand lettered "free! it works!" sign or
+              abandoned for garbage pick-up. All have been deemed fair game for
+              decades.
+            </p>
+            <p>
+              Stooping alerts are often found via Instagram, but it's hard to
+              know what items are nearby. Here, stoops are organized into a map
+              and can be filtered by neighborhood.
+            </p>
+            <p>So get out there, and happy stooping!</p>
+          </div>
+        )
       case type === 2:
         return (
           <div className="toggle-details">
@@ -66,7 +83,17 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
       default:
         return (
           <div className="toggle-details">
-            <p>Howdy</p>
+            <p>
+              New York is filled with many interesting people getting rid of
+              their many interesting things. Post your curb alerts (+) or find
+              your next "new" coffee table here by exploring the markers on the
+              map.
+            </p>
+            <p>
+              If you take a stoop or find one has already been stooped by
+              someone else, please mark it as "taken".
+            </p>
+            <p>Thanks for stooping by!</p>
           </div>
         )
     }
@@ -77,8 +104,12 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
       <Map setMap={setMap} />
       <Markers map={map} stoops={stoops} setIsOpen={setIsOpen} />
       <Collapse className="popup-container" horizontal isOpen={isOpen}>
+        <div className="flex-row">
+          <i onClick={toggle} className="blue icon bi-x"></i>
+        </div>
+        <div className="buffer"></div>
+        <div className="buffer"></div>
         {popupType(type)}
-        <i onClick={toggle} className="icon bi-chevron-left"></i>
       </Collapse>
     </div>
   )

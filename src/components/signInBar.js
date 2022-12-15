@@ -13,7 +13,6 @@ const SignInBar = ({ user, handleLogout }) => {
         </div>
       ) : (
         <div className="flex-row">
-          <h1>StoopCity</h1>
           <div className="register-btn">
             <Link to="/register">
               <i className="icon bi-person-plus-fill"></i>
