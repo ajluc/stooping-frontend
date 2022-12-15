@@ -2,11 +2,12 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 #root {
@@ -21,11 +22,28 @@ body {
   height: 100vh;
 }
 
+hr {
+  margin: 0px;
+}
+
 h1 {
   font-family: 'Abril Fatface', cursive;
   /* transform: scaleY(2); */
   color: #0d6efd;
   margin-left: 10px;
+}
+
+h4, p {
+  font-family: sans-serif
+}
+
+p {
+  font-size: 14px;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 0px;
 }
 
 img {
@@ -50,7 +68,7 @@ textarea {
   font-size: 2em;
 }
 .location-icon {
-  font-size: 1.25em;
+  font-size: 1em;
   margin-right: 10px;
 }
 
@@ -90,6 +108,10 @@ header {
 
 .end {
   justify-content: flex-end;
+}
+
+.space-btw {
+  justify-content: space-between;
 }
 
 input {
@@ -192,6 +214,11 @@ a:link, a:visited, a:hover { text-decoration: none; }
 
 .center-text {
   text-align: center;
+}
+
+.grey {
+  color:#224375;
+  margin: 0px;
 }
 
 .blue {
