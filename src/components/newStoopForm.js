@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { CreateStoop } from '../services/StoopServices'
 
 const AddStoop = ({
@@ -8,15 +9,17 @@ const AddStoop = ({
   startState,
   user
 }) => {
+  let navigate = useNavigate()
   const handleSubmit = async (event) => {
     event.preventDefault()
     console.log('new post')
     console.log(formState)
     // console.log(user.payload.id)
     // navigate(`/`)
-    const newStoop = await CreateStoop(formState)
+    await CreateStoop(formState)
     setStoops([...stoops, formState])
     setFormState(startState)
+    navigate('/')
   }
 
   const handleChange = (event) => {

@@ -5,7 +5,7 @@ import Markers from '../components/markers'
 import { GetStoops } from '../services/StoopServices'
 import AddStoop from '../components/newStoopForm'
 import StoopDetails from '../components/stoopDetails'
-import { Collapse, Button, Alert, Card, CardBody } from 'reactstrap'
+import { Collapse } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -80,7 +80,13 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
           </div>
         )
       case type === 3:
-        return <StoopDetails className="toggle-details" stoops={stoops} />
+        return (
+          <StoopDetails
+            className="toggle-details"
+            stoops={stoops}
+            user={user}
+          />
+        )
       default:
         return (
           <div className="toggle-details">
