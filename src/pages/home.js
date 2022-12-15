@@ -79,7 +79,7 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
           </div>
         )
       case type === 3:
-        return <StoopDetails stoops={stoops} />
+        return <StoopDetails className="toggle-details" stoops={stoops} />
       default:
         return (
           <div className="toggle-details">
@@ -103,14 +103,34 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
     <div className="map grid">
       <Map setMap={setMap} />
       <Markers map={map} stoops={stoops} setIsOpen={setIsOpen} />
-      <Collapse className="popup-container" horizontal isOpen={isOpen}>
-        <div className="flex-row">
-          <i onClick={toggle} className="blue icon bi-x"></i>
-        </div>
-        <div className="buffer"></div>
-        <div className="buffer"></div>
-        {popupType(type)}
-      </Collapse>
+      {type !== 3 ? (
+        <Collapse
+          id="collapse"
+          className="popup-container"
+          horizontal
+          isOpen={isOpen}
+        >
+          <div className="flex-row end">
+            <i onClick={toggle} className="blue icon bi-x"></i>
+          </div>
+          <div className="buffer"></div>
+          <div className="buffer"></div>
+          {popupType(type)}
+        </Collapse>
+      ) : (
+        <Collapse
+          id="collapse"
+          className="popup-container-2"
+          horizontal
+          isOpen={isOpen}
+        >
+          <div className="flex-row end">
+            <i onClick={toggle} className="blue icon bi-x"></i>
+          </div>
+          <div className="buffer"></div>
+          {popupType(type)}
+        </Collapse>
+      )}
     </div>
   )
 }

@@ -28,6 +28,11 @@ h1 {
   margin-left: 10px;
 }
 
+img {
+  width: 100%;
+  border-radius: 25px 25px 0px 0px;
+}
+
 .logo-container {
   grid-column-start: 2;
   grid-row-start: 1;
@@ -39,6 +44,10 @@ h1 {
 
 .icon {
   font-size: 2em;
+}
+.location-icon {
+  font-size: 1.25em;
+  margin-right: 10px;
 }
 
 header {
@@ -73,6 +82,9 @@ header {
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.end {
   justify-content: flex-end;
 }
 
@@ -119,11 +131,6 @@ button:hover {
   width: 25%;
   min-width: 200px;
   max-width: 350px;
-
-  /* padding: 20px;
-  background-color: #cdf3fe;
-  filter: drop-shadow(1px 1px 2px #3FB1CE); */
-
 }
 
 .sign-in-btn {
@@ -154,14 +161,21 @@ a:link, a:visited, a:hover { text-decoration: none; }
   z-index: 1;
 
   width: fit-content;
-  /* height: fit-content; */
-  /* max-width: 500px; */
-  /* max-height: 500px; */
-  /* width: 250px; */
 
   background-color: #7edcf6;
   padding: 10px;
-  /* margin-top: 15px; */
+}
+
+.popup-container-2 {
+  display: flex;
+  flex-direction: column;
+  
+  grid-column-start: 1;
+  grid-row-start: 1;
+  z-index: 1;
+
+  width: fit-content;
+  padding: 10px;
 }
 
 .toggle-details {
@@ -185,4 +199,13 @@ a:link, a:visited, a:hover { text-decoration: none; }
 
 .buffer {
   height: 10px;
+}
+
+.stoop-card {
+  border-radius: 25px;
+  background-color: #7edcf6;
+}
+
+.card-text-container {
+  margin: 10px;
 }
