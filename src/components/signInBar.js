@@ -6,7 +6,7 @@ const SignInBar = ({ user, handleLogout }) => {
       {user ? (
         <div className="flex-row">
           <div className="sign-in-btn">
-            <Link onClick={handleLogout} to="/">
+            <Link onClick={handleLogout} to="/signin">
               Log Out
             </Link>
           </div>

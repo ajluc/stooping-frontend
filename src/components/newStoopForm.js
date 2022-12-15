@@ -5,7 +5,8 @@ const AddStoop = ({
   setStoops,
   formState,
   setFormState,
-  startState
+  startState,
+  user
 }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -23,33 +24,45 @@ const AddStoop = ({
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          id="title"
-          onChange={handleChange}
-          value={formState.title}
-        />
-        <input
-          type="text"
-          placeholder="Image URL"
-          id="image"
-          onChange={handleChange}
-          value={formState.image}
-        />
-        <textarea
-          rows="4"
-          cols="50"
-          onChange={handleChange}
-          id="description"
-          value={formState.description}
-        />
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+    <div className="toggle-details">
+      {user ? (
+        <form onSubmit={handleSubmit}>
+          <div className="form-div">
+            <input
+              type="text"
+              placeholder="Title"
+              id="title"
+              onChange={handleChange}
+              value={formState.title}
+            />
+          </div>
+          <div className="form-div">
+            <input
+              type="text"
+              placeholder="Image URL"
+              id="image"
+              onChange={handleChange}
+              value={formState.image}
+            />
+          </div>
+          <div className="form-div">
+            <textarea
+              rows="4"
+              // cols="25"
+              onChange={handleChange}
+              id="description"
+              placeholder="Description"
+              value={formState.description}
+            />
+            <div className="buffer"></div>
+          </div>
+          <div className="form-div">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      ) : (
+        <p>Please log in or register to add your stoop to the map.</p>
+      )}
     </div>
   )
 }

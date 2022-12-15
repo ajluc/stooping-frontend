@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import { CheckSession } from './services/Auth'
 import { useState, useEffect } from 'react'
 import Register from './pages/Register'
@@ -11,6 +11,7 @@ import SignInBar from './components/signInBar'
 import Logo from './components/logo'
 
 const App = () => {
+  let navigate = useNavigate()
   const [user, setUser] = useState(null)
   const [isOpen, setIsOpen] = useState(true)
 

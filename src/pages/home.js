@@ -69,6 +69,7 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
               stoops={stoops}
               setStoops={setStoops}
               startState={startState}
+              user={user}
             />
             <AddMarker
               user={user}
