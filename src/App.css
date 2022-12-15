@@ -236,6 +236,7 @@ a:link, a:visited, a:hover { text-decoration: none; }
 .stoop-card {
   border-radius: 25px;
   background-color: #7edcf6;
+  width: 300px;
 }
 
 .card-text-container {
