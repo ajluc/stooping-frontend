@@ -5,7 +5,6 @@ const SignInBar = ({ user, handleLogout }) => {
     <div className="sign-in-container">
       {user ? (
         <div className="flex-row">
-          <h1>StoopCity</h1>
           <div className="sign-in-btn">
             <Link onClick={handleLogout} to="/">
               Log Out

@@ -8,6 +8,7 @@ import Header from './components/navBar'
 import ListView from './pages/ListView'
 import Home from './pages/Home'
 import SignInBar from './components/signInBar'
+import Logo from './components/logo'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -35,6 +36,7 @@ const App = () => {
     <div className="app-container">
       <Header isOpen={isOpen} setIsOpen={setIsOpen} />
       <SignInBar user={user} handleLogout={handleLogout} />
+      <Logo />
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />

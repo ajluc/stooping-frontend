@@ -13,7 +13,7 @@ const Map = ({ setMap }) => {
       container: mapContainerRef.current,
       style: 'mapbox://styles/ajluc/clbfex7b9001l14qp20sva3qo/draft',
       center: [-73.97, 40.75],
-      zoom: 11
+      zoom: 12
     })
     // Add navigation control (the +/- zoom buttons)
     map.addControl(new mapboxgl.NavigationControl(), 'bottom-right')
