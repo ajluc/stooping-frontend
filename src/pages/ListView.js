@@ -3,7 +3,7 @@ import { GetStoops } from '../services/StoopServices'
 import StoopCard from '../components/stoopCard'
 import Pagination from '../components/pagination'
 
-let PageSize = 10
+let PageSize = 3
 
 const ListView = ({ user }) => {
   const [stoops, setStoops] = useState([])
@@ -27,12 +27,6 @@ const ListView = ({ user }) => {
   return (
     <div className="list-container">
       <div className="flex-row">
-        <p>Let's see them eh?</p>
-        {/* {stoops.map((stoop) => (
-          <div key={stoop.id}>
-            <StoopCard id={stoop.id} stoop={stoop} />
-          </div>
-        ))} */}
         {currentTableData.map((stoop) => (
           <div key={stoop.id}>
             <StoopCard id={stoop.id} stoop={stoop} />
