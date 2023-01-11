@@ -53,7 +53,7 @@ const App = () => {
             <Home user={user} type={1} isOpen={isOpen} setIsOpen={setIsOpen} />
           }
         />
-        {/* <Route
+        <Route
           path="/add"
           element={
             <Home user={user} type={2} isOpen={isOpen} setIsOpen={setIsOpen} />
@@ -64,7 +64,7 @@ const App = () => {
           element={
             <Home user={user} type={3} isOpen={isOpen} setIsOpen={setIsOpen} />
           }
-        /> */}
+        />
       </Routes>
       <div></div>
     </div>

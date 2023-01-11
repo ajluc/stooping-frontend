@@ -63,20 +63,20 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
       case type === 2:
         return (
           <div className="toggle-details">
-            {/* <AddStoop
+            <AddStoop
               formState={formState}
               setFormState={setFormState}
               stoops={stoops}
               setStoops={setStoops}
               startState={startState}
               user={user}
-            /> */}
-            {/* <AddMarker
+            />
+            <AddMarker
               user={user}
               map={map}
               formState={formState}
               setFormState={setFormState}
-            /> */}
+            />
           </div>
         )
       case type === 3:
@@ -108,8 +108,8 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
 
   return (
     <div className="map grid">
-      {/* <Map setMap={setMap} /> */}
-      {/* <Markers map={map} stoops={stoops} setIsOpen={setIsOpen} />
+      <Map setMap={setMap} />
+      <Markers map={map} stoops={stoops} setIsOpen={setIsOpen} />
       {type !== 3 ? (
         <Collapse
           id="collapse"
@@ -137,7 +137,7 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
           <div className="buffer"></div>
           {popupType(type)}
         </Collapse>
-      )} */}
+      )}
     </div>
   )
 }
