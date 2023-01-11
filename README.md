@@ -63,3 +63,5 @@ Grid Guide: [CSS-Tricks](https://css-tricks.com/snippets/css/complete-guide-grid
 Mapbox with React Examples: [github](https://github.com/mapbox/mapbox-react-examples)
 
 Removing markers from a map: [Stack Overflow](https://stackoverflow.com/questions/46155523/mapbox-clear-all-current-markers)
+
+Deployment Heap out of memory fix: [Stack Overflow](https://stackoverflow.com/questions/59205530/heroku-server-crashes-with-javascript-heap-out-of-memory-when-deploying-react)
