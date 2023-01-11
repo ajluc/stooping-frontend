@@ -108,7 +108,7 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
 
   return (
     <div className="map grid">
-      <Map setMap={setMap} />
+      {/* <Map setMap={setMap} /> */}
       {/* <Markers map={map} stoops={stoops} setIsOpen={setIsOpen} />
       {type !== 3 ? (
         <Collapse
