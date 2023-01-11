@@ -52,11 +52,11 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
               abandoned for garbage pick-up. All have been deemed fair game for
               decades.
             </p>
-            <p>
+            {/* <p>
               Stooping alerts are often found via Instagram, but it's hard to
               know what items are nearby. Here, stoops are organized into a map
               and can be filtered by neighborhood.
-            </p>
+            </p> */}
             <p>So get out there, and happy stooping!</p>
           </div>
         )
@@ -96,10 +96,10 @@ const Home = ({ user, type, isOpen, setIsOpen }) => {
               your next "new" coffee table here by exploring the markers on the
               map.
             </p>
-            <p>
+            {/* <p>
               If you take a stoop or find one has already been stooped by
               someone else, please mark it as "taken".
-            </p>
+            </p> */}
             <p>Thanks for stooping by!</p>
           </div>
         )
