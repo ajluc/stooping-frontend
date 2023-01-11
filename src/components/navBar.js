@@ -16,9 +16,9 @@ const Header = ({ setIsOpen }) => {
           <Link to="/add">
             <i onClick={toggle} className="icon bi-plus"></i>
           </Link>
-          <Link to="/list">
+          {/* <Link to="/list">
             <i className="icon bi-list-ul"></i>
-          </Link>
+          </Link> */}
         </div>
       </nav>
     </header>
