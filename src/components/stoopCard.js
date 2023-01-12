@@ -65,10 +65,10 @@ const StoopCard = ({ stoop, user }) => {
             </div>
           </div>
           <hr />
-          <div className="flex-row">
+          {/* <div className="flex-row">
             <i className="grey location-icon bi-geo-alt-fill"></i>
             <p className="grey">{stoop.neighborhood.name}</p>
-          </div>
+          </div> */}
           <div className="buffer"></div>
           {editing ? (
             <form onSubmit={handleSubmit}>
