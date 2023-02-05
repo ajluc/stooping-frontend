@@ -29,6 +29,16 @@ const SignIn = ({ setUser }) => {
     }
   }
 
+  const demoSubmit = async (e) => {
+    e.preventDefault()
+    const payload = await SignInUser({
+      email: 'amayajlucas@gmail.com',
+      password: 'stoopcity1234'
+    })
+    await setUser(payload)
+    navigate('/')
+  }
+
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit}>
@@ -55,6 +65,11 @@ const SignIn = ({ setUser }) => {
         <div className="buffer"></div>
         <div className="form-div">
           <button>log in</button>
+        </div>
+      </form>
+      <form onSubmit={demoSubmit}>
+        <div className="form-div">
+          <button>demo user</button>
         </div>
       </form>
       <div className="form-div">
