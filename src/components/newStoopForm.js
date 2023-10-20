@@ -30,6 +30,7 @@ const AddStoop = ({
     <div className="toggle-details">
       {user ? (
         <form onSubmit={handleSubmit}>
+          <p>Click on the map to drop a pin where you spotted the Stoop!</p>
           <div className="form-div">
             <input
               type="text"

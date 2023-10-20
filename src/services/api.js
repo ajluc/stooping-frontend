@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-export const BASE_URL = 'https://stooping-backend-2dc681325bca.herokuapp.com/'
+export const BASE_URL = 'https://stooping-backend-e60718012b09.herokuapp.com/'
 // export const BASE_URL = 'http://localhost:5000'
 
 const Client = Axios.create({ baseURL: BASE_URL })
